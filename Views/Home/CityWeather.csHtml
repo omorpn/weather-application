@@ -1,0 +1,43 @@
+@model CityWeather
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string backgroundcolor(int temperature)
+    {
+        return temperature  switch{
+      ( <40) => "blue-back",
+       >= 40 and <70 => "green-back",
+        >= 70 => "orange-back"
+        };
+
+    }
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Weather Forecast</h1>
+            <div class="margin-auto">
+                
+                     <div class="box inline-block  @backgroundcolor(Model.TemperatureFahrenheit)">
+           
+            <div class="flex-borderless">
+            <div >
+                <h2>@Model.CityName</h2>
+                <p>@Model.DateAndTime.ToString("hh:mm  tt")</p>
+                <p>@Model.DateAndTime.ToString("yyyy: MM :dd ")</p>
+                <a href="/">back</a>
+            </div>
+            
+            
+            
+            <div class="border-left">
+             <h2>@Model.TemperatureFahrenheit</h2>
+                <h2 class="text-grey "> <span>&deg;</span>F</h2>
+            </div>
+            </div>
+        
+        </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

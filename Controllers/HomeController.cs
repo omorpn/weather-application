@@ -36,7 +36,7 @@ namespace weather_application.Controllers
                 == cityCode.ToLower()).FirstOrDefault();
                 if(cityById != null)
                 {
-                return View("Inde", cityById);
+                return View("CityWeather", cityById);
 
                 }
                 else

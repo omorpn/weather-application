@@ -1,12 +1,21 @@
-﻿
+﻿@model IEnumerable<CityWeather>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string backgroundcolor(int temperature)
+    {
+        return temperature  switch{
+       (<40 )=> "blue-back",
+       >= 40 and <70 => "green-back",
+        >= 70 => "orange-back"
+        };
+
+    };
 }
 
 <div>
     @foreach(var item in Model)
     {
-        <div class="box inline-block blue-back">
+        <div class="box inline-block @backgroundcolor(item.TemperatureFahrenheit)">
            
             <div class="flex-borderless">
             <div >
