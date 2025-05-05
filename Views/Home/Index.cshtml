@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @foreach(var item in Model)
+    {
+        <div class="box inline-block blue-back">
+           
+            <div class="flex-borderless">
+            <div >
+                <h2>@item.CityName</h2>
+                <p>@item.DateAndTime.ToString("hh:mm  tt")</p>
+                <a href="/weather/@item.CityUniqueCode">Details</a>
+            </div>
+            
+            
+            
+            <div class="border-left">
+             <h2>@item.TemperatureFahrenheit</h2>
+                <h2 class="text-grey "> <span>&deg;</span>F</h2>
+            </div>
+            </div>
+        
+        </div>
+    }
+    
+</div>
+</div>
